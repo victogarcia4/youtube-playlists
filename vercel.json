@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm run build:vercel",
+  "outputDirectory": ".next",
+  "framework": "nextjs",
+  "env": {
+    "NODE_VERSION": "22"
+  }
+}
