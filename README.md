@@ -1,6 +1,6 @@
 # Vic & Vicky's Playlist App
 
-A minimal music playlist player (supporting YouTube & Spotify) for long trips, film scores, classical music, and Disney songs.
+A minimal music playlist player (supporting YouTube & Spotify) for long trips, film scores, classical music, Disney songs, and FreeCover sessions.
 
 🚀 **Live at: [vic-youtube-playlist.vercel.app](https://vic-youtube-playlist.vercel.app/)**
 
@@ -14,6 +14,7 @@ A minimal music playlist player (supporting YouTube & Spotify) for long trips, f
 | 🎵 Disney gems | Disney Songs That Slap | Nostalgic, high-energy |
 | 🎵 Disney vocals | Best Disney Songs to Belt | High-energy, theatrical |
 | 💃 Salsa time | Salsa Mix | Rhythmic, vibrant |
+| 🇻🇪 Free Cover | FreeCover Venezuela | Festive, high-energy |
 
 ## Tech Stack
 

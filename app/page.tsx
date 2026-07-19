@@ -73,12 +73,47 @@ const playlists = [
     accent: "#ff5722",
     url: "https://open.spotify.com/playlist/37i9dQZF1EQlZ5S0kXf8kf?si=xXjSotf-QBOfc0-vZXFtDQ",
   },
+  {
+    id: "Dfj6aGNQTG0",
+    type: "youtube-custom",
+    videoIds: [
+      "dzReEdzjgks",
+      "5Be3CLUw2iE",
+      "jjSGKRG3jbk",
+      "GaTMsIDUk_A",
+      "Oqcqnxjwp8Q",
+      "uWvqljXwyMU",
+      "kvye8_sVFsE",
+      "TvPPy_utkkc",
+      "HNSixlQj2B8",
+      "5d58QEdFV_o",
+      "YIccsbT8nOI",
+      "T_IBBZyjlFw",
+      "G63HASkk69Y",
+      "s0isG9bLdPg",
+      "OUzoPaTw7-E",
+      "NESKQr1e8Rs",
+      "rQfs8EnEQWE",
+      "stltsjJ7axU",
+      "0AhTWoao1TA",
+      "_p2uQLd_5lY",
+      "BVRksCLh8B8",
+    ],
+    title: "FreeCover Venezuela",
+    kicker: "Free Cover",
+    description:
+      "A high-energy collection of Venezuelan Free Cover sessions, bringing together legends across salsa, merengue, pop, and rock.",
+    tone: "Festive, high-energy, nostalgic",
+    duration: "Venezuelan party",
+    accent: "#ffc107",
+    url: "https://www.youtube.com/watch?v=Dfj6aGNQTG0",
+  },
 ];
 
 export const metadata: Metadata = {
   title: "Vic & Vicky's Playlist App",
   description:
-    "A minimal music playlist player for Vic & Vicky's long trips, film scores, classical music, Disney gems, and salsa mixes.",
+    "A minimal music playlist player for Vic & Vicky's long trips, film scores, classical music, Disney gems, salsa mixes, and FreeCover sessions.",
 };
 
 export default function Home() {
@@ -115,7 +150,7 @@ export default function Home() {
         <div className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:py-14">
           <section className="max-w-2xl">
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.28em] text-[#8f5c42]">
-              Six moods, one quiet control room
+              Seven moods, one quiet control room
             </p>
             <h1 className="text-5xl font-semibold leading-[0.96] text-[#181714] sm:text-6xl lg:text-7xl">
               {"A cleaner way to drift through Vic & Vicky's favorite playlists."}
@@ -158,6 +193,14 @@ export default function Home() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                   loading="lazy"
                 />
+              ) : playlists[0].type === "youtube-custom" && playlists[0].videoIds ? (
+                <iframe
+                  className="aspect-video w-full"
+                  src={`https://www.youtube.com/embed/${playlists[0].id}?playlist=${playlists[0].videoIds.join(",")}`}
+                  title={`${playlists[0].title} YouTube playlist`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
               ) : (
                 <iframe
                   className="aspect-video w-full"
@@ -168,7 +211,7 @@ export default function Home() {
                 />
               )}
             </div>
-            <div className="grid gap-3 p-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="grid gap-3 p-4 grid-cols-[repeat(auto-fit,minmax(160px,1fr))]">
               {playlists.map((playlist) => (
                 <a
                   key={playlist.id}
@@ -193,7 +236,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[#181714] px-5 py-16 text-[#f8f6f1] sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {playlists.map((playlist) => (
             <article
               id={playlist.id}
@@ -233,6 +276,14 @@ export default function Home() {
                     title={`${playlist.title} Spotify playlist`}
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                     loading="lazy"
+                  />
+                ) : playlist.type === "youtube-custom" && playlist.videoIds ? (
+                  <iframe
+                    className="aspect-video w-full border-0"
+                    src={`https://www.youtube.com/embed/${playlist.id}?playlist=${playlist.videoIds.join(",")}`}
+                    title={`${playlist.title} YouTube playlist`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
                   />
                 ) : (
                   <iframe
