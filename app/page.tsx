@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 const playlists = [
   {
     id: "PLOIUzos0aahHHa2jfk8y30jok5p6M1oYT",
+    type: "youtube",
     title: "Vic's Long Trips",
     kicker: "Road focus",
     description:
@@ -14,6 +15,7 @@ const playlists = [
   },
   {
     id: "PLOIUzos0aahEJCWhGTZwMgYDCbJi3BYIp",
+    type: "youtube",
     title: "Playlist de Film Scores",
     kicker: "Score mode",
     description:
@@ -25,6 +27,7 @@ const playlists = [
   },
   {
     id: "PLOIUzos0aahG_kB5dc5PFy73P__Vqq9mp",
+    type: "youtube",
     title: "Playlist de Classical Music",
     kicker: "Classical room",
     description:
@@ -34,12 +37,48 @@ const playlists = [
     accent: "#4d9a87",
     url: "https://youtube.com/playlist?list=PLOIUzos0aahG_kB5dc5PFy73P__Vqq9mp",
   },
+  {
+    id: "42UkpxHZzexqaG1T2Wf2yu",
+    type: "spotify",
+    title: "Disney Songs That Slap",
+    kicker: "Disney gems",
+    description:
+      "A nostalgic, high-energy compilation of Disney hits and childhood favorites that never fail to deliver.",
+    tone: "Nostalgic, high-energy, fun",
+    duration: "Sing-along marathon",
+    accent: "#1db954",
+    url: "https://open.spotify.com/playlist/42UkpxHZzexqaG1T2Wf2yu?si=QP1k23QkQ7uPZ5DOp5-wzQ",
+  },
+  {
+    id: "5Fei3nhFbMXalsup2PJLZi",
+    type: "spotify",
+    title: "Best Disney Songs to Belt",
+    kicker: "Disney vocals",
+    description:
+      "A collection of high-energy, sing-along Disney favorites made for singing at the top of your lungs.",
+    tone: "High-energy, theatrical, nostalgic",
+    duration: "Vocal workout",
+    accent: "#e91e63",
+    url: "https://open.spotify.com/playlist/5Fei3nhFbMXalsup2PJLZi?si=0f4IudSzQhq4wr199KNQNA",
+  },
+  {
+    id: "37i9dQZF1EQlZ5S0kXf8kf",
+    type: "spotify",
+    title: "Salsa Mix",
+    kicker: "Salsa time",
+    description:
+      "A vibrant collection of salsa classics featuring Yiyo Sarante, Maelo Ruiz, Adolescent's Orquesta, and more.",
+    tone: "Rhythmic, vibrant, dance",
+    duration: "Constant movement",
+    accent: "#ff5722",
+    url: "https://open.spotify.com/playlist/37i9dQZF1EQlZ5S0kXf8kf?si=xXjSotf-QBOfc0-vZXFtDQ",
+  },
 ];
 
 export const metadata: Metadata = {
   title: "Vic's Playlist App",
   description:
-    "A minimal YouTube playlist player for Vic's long trips, film scores, and classical music.",
+    "A minimal music playlist player for Vic's long trips, film scores, classical music, Disney gems, and salsa mixes.",
 };
 
 export default function Home() {
@@ -55,9 +94,9 @@ export default function Home() {
             </span>
             <span>
               <span className="block text-sm font-semibold uppercase tracking-[0.22em] text-[#6b655a]">
-                YouTube Listener
+                Music Hub
               </span>
-              <span className="block text-lg font-semibold">Vic's Playlists</span>
+              <span className="block text-lg font-semibold">{"Vic's Playlists"}</span>
             </span>
           </a>
           <nav className="flex flex-wrap gap-2" aria-label="Playlist shortcuts">
@@ -76,10 +115,10 @@ export default function Home() {
         <div className="grid flex-1 items-center gap-10 py-10 lg:grid-cols-[0.92fr_1.08fr] lg:py-14">
           <section className="max-w-2xl">
             <p className="mb-5 text-sm font-semibold uppercase tracking-[0.28em] text-[#8f5c42]">
-              Three moods, one quiet control room
+              Six moods, one quiet control room
             </p>
             <h1 className="text-5xl font-semibold leading-[0.96] text-[#181714] sm:text-6xl lg:text-7xl">
-              A cleaner way to drift through Vic's favorite playlists.
+              {"A cleaner way to drift through Vic's favorite playlists."}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#5d574c]">
               Pick a mood, press play, and keep the queue open while the day
@@ -100,7 +139,7 @@ export default function Home() {
                 rel="noreferrer"
                 target="_blank"
               >
-                Launch on YouTube
+                Launch on {playlists[0].type === "spotify" ? "Spotify" : "YouTube"}
               </a>
             </div>
           </section>
@@ -111,15 +150,25 @@ export default function Home() {
             aria-label="Featured playlist player"
           >
             <div className="overflow-hidden rounded-[1.5rem] bg-[#181714]">
-              <iframe
-                className="aspect-video w-full"
-                src={`https://www.youtube.com/embed/videoseries?list=${playlists[0].id}`}
-                title="Vic's Long Trips YouTube playlist"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
+              {playlists[0].type === "spotify" ? (
+                <iframe
+                  className="aspect-video w-full border-0"
+                  src={`https://open.spotify.com/embed/playlist/${playlists[0].id}?utm_source=generator`}
+                  title={`${playlists[0].title} Spotify playlist`}
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                  loading="lazy"
+                />
+              ) : (
+                <iframe
+                  className="aspect-video w-full"
+                  src={`https://www.youtube.com/embed/videoseries?list=${playlists[0].id}`}
+                  title={`${playlists[0].title} YouTube playlist`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              )}
             </div>
-            <div className="grid gap-3 p-4 sm:grid-cols-3">
+            <div className="grid gap-3 p-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-6">
               {playlists.map((playlist) => (
                 <a
                   key={playlist.id}
@@ -144,7 +193,7 @@ export default function Home() {
       </section>
 
       <section className="bg-[#181714] px-5 py-16 text-[#f8f6f1] sm:px-8 lg:px-10">
-        <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-3">
+        <div className="mx-auto grid max-w-7xl gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {playlists.map((playlist) => (
             <article
               id={playlist.id}
@@ -177,13 +226,23 @@ export default function Home() {
                 </div>
               </dl>
               <div className="mt-6 overflow-hidden rounded-2xl bg-black">
-                <iframe
-                  className="aspect-video w-full"
-                  src={`https://www.youtube.com/embed/videoseries?list=${playlist.id}`}
-                  title={`${playlist.title} YouTube playlist`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
+                {playlist.type === "spotify" ? (
+                  <iframe
+                    className="aspect-video w-full border-0"
+                    src={`https://open.spotify.com/embed/playlist/${playlist.id}?utm_source=generator`}
+                    title={`${playlist.title} Spotify playlist`}
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                  />
+                ) : (
+                  <iframe
+                    className="aspect-video w-full"
+                    src={`https://www.youtube.com/embed/videoseries?list=${playlist.id}`}
+                    title={`${playlist.title} YouTube playlist`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                  />
+                )}
               </div>
               <a
                 className="mt-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#181714] transition hover:-translate-y-0.5"
@@ -191,7 +250,7 @@ export default function Home() {
                 rel="noreferrer"
                 target="_blank"
               >
-                Open playlist
+                Open on {playlist.type === "spotify" ? "Spotify" : "YouTube"}
               </a>
             </article>
           ))}

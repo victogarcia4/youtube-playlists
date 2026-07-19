@@ -1,6 +1,6 @@
 # Vic's Playlist App
 
-A minimal YouTube playlist player for long trips, film scores, and classical music.
+A minimal music playlist player (supporting YouTube & Spotify) for long trips, film scores, classical music, and Disney songs.
 
 🚀 **Live at: [vic-youtube-playlist.vercel.app](https://vic-youtube-playlist.vercel.app/)**
 
@@ -11,6 +11,9 @@ A minimal YouTube playlist player for long trips, film scores, and classical mus
 | 🚗 Road focus | Vic's Long Trips | Expansive, cinematic |
 | 🎬 Score mode | Playlist de Film Scores | Dramatic, emotional |
 | 🎼 Classical room | Playlist de Classical Music | Clear, elegant |
+| 🎵 Disney gems | Disney Songs That Slap | Nostalgic, high-energy |
+| 🎵 Disney vocals | Best Disney Songs to Belt | High-energy, theatrical |
+| 💃 Salsa time | Salsa Mix | Rhythmic, vibrant |
 
 ## Tech Stack
 
