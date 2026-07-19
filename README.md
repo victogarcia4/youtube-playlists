@@ -1,4 +1,4 @@
-# Vic's Playlist App
+# Vic & Vicky's Playlist App
 
 A minimal music playlist player (supporting YouTube & Spotify) for long trips, film scores, classical music, and Disney songs.
 

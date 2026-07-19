@@ -76,9 +76,9 @@ const playlists = [
 ];
 
 export const metadata: Metadata = {
-  title: "Vic's Playlist App",
+  title: "Vic & Vicky's Playlist App",
   description:
-    "A minimal music playlist player for Vic's long trips, film scores, classical music, Disney gems, and salsa mixes.",
+    "A minimal music playlist player for Vic & Vicky's long trips, film scores, classical music, Disney gems, and salsa mixes.",
 };
 
 export default function Home() {
@@ -96,7 +96,7 @@ export default function Home() {
               <span className="block text-sm font-semibold uppercase tracking-[0.22em] text-[#6b655a]">
                 Music Hub
               </span>
-              <span className="block text-lg font-semibold">{"Vic's Playlists"}</span>
+              <span className="block text-lg font-semibold">{"Vic & Vicky's Playlists"}</span>
             </span>
           </a>
           <nav className="flex flex-wrap gap-2" aria-label="Playlist shortcuts">
@@ -118,7 +118,7 @@ export default function Home() {
               Six moods, one quiet control room
             </p>
             <h1 className="text-5xl font-semibold leading-[0.96] text-[#181714] sm:text-6xl lg:text-7xl">
-              {"A cleaner way to drift through Vic's favorite playlists."}
+              {"A cleaner way to drift through Vic & Vicky's favorite playlists."}
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-[#5d574c]">
               Pick a mood, press play, and keep the queue open while the day
